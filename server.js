@@ -1,9 +1,8 @@
 'use strict';
 
-var Brcypt = require('bcrypt'),
+var Bcrypt = require('bcrypt'),
     Hapi = require('hapi'),
-    Basic = require('hapi-auth-basic'),
-    salt = require('./static_salt');
+    Basic = require('hapi-auth-basic');
 
 var server = new Hapi.Server();
 server.connection({ port: 3000 });
@@ -11,13 +10,13 @@ server.connection({ port: 3000 });
 var users = {
   user1: {
     username: 'user1',
-    password: '___',
+    password: '$2a$10$jk7u12Irjh5KLv7neR.i7OEPMaQ2CKY/6NiaQISX4F/l5.KKbpnbq',   // abc123
     name: 'John Doe',
     id: '2145'
   },
   user2: {
     username: 'user2',
-    password: '___',
+    password: '$2a$10$jk7u12Irjh5KLv7neR.i7O52ckNtYmHKzDcf4Vhojxfa371cfqgIS',   // cownow
     name: 'Jane Doe',
     id: '3865'
   }
@@ -37,7 +36,7 @@ var validate = function (username, password, callback) {
 
 server.register(Basic, function (error) {
 
-  if (error) {throw error};
+  if (error) {throw error;}
 
   server.auth.strategy('simple', 'basic', { validateFunc: validate });
 
@@ -53,7 +52,7 @@ server.register(Basic, function (error) {
   });
 
   server.start(function () {
-    console.log('server running at: ' + server.info);
+    console.log('server running at: ' + server.info.uri);
   });
 });
 
