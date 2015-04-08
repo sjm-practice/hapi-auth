@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     Bcrypt = require('bcrypt'),
     argv = require('minimist')(process.argv.slice(2)),
     storedSalt = require('./static_salt'),
-    parseNumber = require('parse-number');
+    parseNumber = require('parse-number'),
+    jshint = require('gulp-jshint');
 
 gulp.task('default', function () {
   return console.log('hello I say.');
@@ -37,3 +38,9 @@ gulp.task('compare', function() {
 
   return console.log(result);
 });
+
+gulp.task('lint', function () {
+  return gulp.src('./*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+})
