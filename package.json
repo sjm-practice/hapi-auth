@@ -1,0 +1,33 @@
+{
+  "name": "hapi-auth",
+  "version": "1.0.0",
+  "description": "A simple node/hapi app to practice basic authentication.",
+  "main": "server.js",
+  "scripts": {
+    "test": "lab -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sjm-practice/hapi-auth.git"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "hapi",
+    "authentication"
+  ],
+  "author": "Steve Marsh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sjm-practice/hapi-auth/issues"
+  },
+  "homepage": "https://github.com/sjm-practice/hapi-auth",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "minimist": "^1.1.1",
+    "parse-number": "^1.0.1"
+  },
+  "dependencies": {
+    "bcrypt": "^0.8.2"
+  }
+}
